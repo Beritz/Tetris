@@ -19,6 +19,101 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainMenuPanel extends JPanel {
+	private final class PlayAction implements MouseListener {
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			play.setForeground(Color.BLACK);
+
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			play.setForeground(Color.YELLOW);
+
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			MainMenuFrame.window.remove(MainMenuPanel.this);
+			new WindowFrame();
+		}
+	}
+
+	private final class HowAction implements MouseListener {
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			howToPlay.setForeground(Color.BLACK);
+
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			howToPlay.setForeground(Color.YELLOW);
+
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			MainMenuFrame.window.remove(MainMenuPanel.this);
+			new HowToPlayFrame();
+		}
+	}
+
+	private final class ExitAction implements MouseListener {
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			exit.setForeground(Color.BLACK);
+
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			exit.setForeground(Color.YELLOW);
+
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			System.exit(0);
+
+		}
+	}
+
 	JLabel title, upTitle, upUpTitle;
 	JLabel play, exit, howToPlay;
 	BufferedImage cube;
@@ -64,112 +159,21 @@ public class MainMenuPanel extends JPanel {
 		play.setBounds(60, 170, 500, 50);
 		play.setFont(new Font("Orange Kid", Font.BOLD, 36));
 		play.setForeground(Color.BLACK);
-		play.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				play.setForeground(Color.BLACK);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				play.setForeground(Color.YELLOW);
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				MainMenuFrame.window.remove(MainMenuPanel.this);
-				new WindowFrame();
-			}
-		});
+		play.addMouseListener(new PlayAction());
 		add(play);
 
 		howToPlay = new JLabel("How To Play", JLabel.CENTER);
 		howToPlay.setBounds(60, 213, 500, 50);
 		howToPlay.setFont(new Font("Orange Kid", Font.BOLD, 36));
 		howToPlay.setForeground(Color.BLACK);
-		howToPlay.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				howToPlay.setForeground(Color.BLACK);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				howToPlay.setForeground(Color.YELLOW);
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				MainMenuFrame.window.remove(MainMenuPanel.this);
-				new HowToPlayFrame();
-			}
-		});
+		howToPlay.addMouseListener(new HowAction());
 		add(howToPlay);
 
 		exit = new JLabel("Exit", JLabel.CENTER);
 		exit.setBounds(60, 250, 500, 50);
 		exit.setFont(new Font("Orange Kid", Font.BOLD, 36));
 		exit.setForeground(Color.BLACK);
-		exit.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				exit.setForeground(Color.BLACK);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				exit.setForeground(Color.YELLOW);
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-
-			}
-		});
+		exit.addMouseListener(new ExitAction());
 		add(exit);
 
 		// masukkin sound
